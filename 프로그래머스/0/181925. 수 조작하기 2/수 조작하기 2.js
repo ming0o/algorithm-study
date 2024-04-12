@@ -1,17 +1,9 @@
 function solution(numLog) {
-    var n = numLog[0]; 
-    var result = ''; 
-    
-    for (let i = 0; i < numLog.length - 1; i++) {
-        if (numLog[i+1] - numLog[i] === 1) {
-            result += 'w'; 
-        } else if (numLog[i+1] - numLog[i] === -1) {
-            result += 's'; 
-        } else if (numLog[i+1] - numLog[i] === 10) {
-            result += 'd'; 
-        } else if (numLog[i+1] - numLog[i] === -10) {
-            result += 'a'; 
-        }
-    }
-    return result;
+    const convert = {
+        '1': 'w', '-1': 's', '10': 'd', '-10': 'a'
+    };
+
+    return numLog.slice(1).map((v, i) => {
+        return convert[v - numLog[i]]
+    }).join('')
 }
