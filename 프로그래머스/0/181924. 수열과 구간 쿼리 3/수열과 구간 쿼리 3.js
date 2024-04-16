@@ -1,7 +1,6 @@
 function solution(arr, queries) {
-    for (let i = 0; i < queries.length; i++) {
-        let [index1, index2] = queries[i];
-        [arr[index1], arr[index2]] = [arr[index2], arr[index1]]; // 배열의 요소를 서로 교환
-    }
+    queries.forEach( ([a,b]) => {
+        [arr[a],arr[b]] = [arr[b],arr[a]];
+    })
     return arr;
 }
